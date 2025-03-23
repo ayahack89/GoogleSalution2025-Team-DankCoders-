@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<style>
+     input[type="text"]{
+          border-radius: 100px;
+     }
+     .card {
+       border-radius: 15px;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+     }
+     .information {
+       font-weight: bold;
+     }
+     .ri-id-card-line{
+          font-size: 2rem;
+     }
+     .text-primary{
+          font-size: 1.2rem;
+     }
+   </style>
+
+<body>
+     <!-- Navbar -Start  -->
+     <nav class="navbar navbar-light">
+          <span class="navbar-brand mb-0 h1  text-primary"><i class="ri-id-card-line"></i><i>Smartcard</i></span>
+        </nav>
+     <!-- Navbar -Stop  -->
+
+<!-- Form -Start  -->
+  <div class="container mt-5 px-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center mt-4">Login</h5>
+            <form action="uid" method="get">
+              {% if message %}
+              <div class="alert alert-danger" role="alert">
+                {{message}}
+              </div>{% endif %}
+
+              <div class="form-group">
+                <label for="uniqueId" class="information px-2">Please enter your unique Id</label>
+                <input type="text" class="form-control" id="uniqueId" placeholder="Enter your unique Id.." name='uniqueid' required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" style="border-radius: 100px;">Log In <i class="ri-login-circle-line"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Form -End  -->
+
+     <br>
+
+
+
+
+
+     
+</body>
+
+</html>
