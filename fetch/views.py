@@ -4,7 +4,7 @@ from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.core import serializers
 import json
-from .forms import DocumentForm
+from .forms import DocumentForm,AdminLoginForm
 # Create your views here.
 def load(request):
     return render(request,'index.html')
@@ -40,7 +40,7 @@ def login_view(request):
             user= authenticate(username=username,password=passwd)
             if user is not None:
                 login(request,user)
-                return download_docs(request)
+                return redirect("download_docs")
             else:
                 user=User.objects.get(username=username)
                 full_name=user.get_full_name()
@@ -125,17 +125,37 @@ def download_reports(request):
     else:
         return HttpResponse("Please Login First!!!")
 def upload_document(request):
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            # Create an instance but don't commit it to the database yet
-            document = form.save(commit=False)
-            # Assign the current user as the owner of the document
-            document.user = request.user
-            document.save()
-            # Optionally, redirect to a success page or document list page
-            return redirect('download_reports')  # Change 'document_list' to your desired URL name
-    else:
-        form = DocumentForm()
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = DocumentForm(request.POST, request.FILES)
+            if form.is_valid():
+                # Create an instance but don't commit it to the database yet
+                document = form.save(commit=False)
+                # Assign the current user as the owner of the document
+                document.user = request.user
+                document.save()
+                # Optionally, redirect to a success page or document list page
+                return redirect('download_reports')  # Change 'document_list' to your desired URL name
+        else:
+            form = DocumentForm()
     
-    return render(request, 'upload_document.html', {'form': form})
+        return render(request, 'upload_document.html', {'form': form})
+    else:
+        return redirect("download_docs")
+def admin_login(request):
+    if request.method == "POST":
+        form = AdminLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None and user.is_staff:  # Ensuring only admins can log in
+                login(request, user)
+                return redirect("upload_document")  # Redirect to the admin dashboard
+            else:
+                form.add_error(None, "Invalid credentials or insufficient permissions.")
+    else:
+        form = AdminLoginForm()
+
+    return render(request, "admin_login.html", {"form": form})

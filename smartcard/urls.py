@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 from fetch import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', views.admin_login),
+    path('admin_dj/',admin.site.urls),
     path('', views.load,name='load'),
     path('home', views.index,name='home'),
     path('uid', views.pwd),
