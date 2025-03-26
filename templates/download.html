@@ -40,7 +40,7 @@
     .btn {
       border-radius: 100px;
     }
-    .ri-id-card-line {
+    .ri-health-book-fill {
       font-size: 2rem;
     }
     .text-primary {
@@ -60,52 +60,129 @@
       text-decoration: none;
       color: white;
     }
+    /* Table Container */
     .dataTables_wrapper {
-      background-color: #f8f9fa; /* Light gray */
+      background-color: #ffffff; /* White background */
       padding: 20px;
       border-radius: 10px;
       width: 100%;
       overflow-x: auto;
-      border: 1px solid #ddd; /* Professional border */
+      border: 1px solid #ddd;
     }
-    /* Table header */
+    
+    /* Table */
+    .dataTable {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    /* Table Header */
     .dataTable thead th {
-      background-color: #007bff;
+      background-color: #007bff; /* Bootstrap Primary */
       color: white;
       text-align: center;
       font-weight: bold;
+      padding: 12px;
+      border-bottom: 2px solid #0056b3;
     }
-    /* Alternate row colors */
+    
+    /* Table Rows */
+    .dataTable tbody tr {
+      background-color: #f9f9f9;
+      transition: background-color 0.3s ease;
+    }
+    
+    /* Alternate Row Colors */
     .dataTable tbody tr:nth-child(even) {
-      background-color: #f2f2f2;
+      background-color: #eef4fc;
     }
-    /* Hover effect */
+    
+    /* Hover Effect */
     .dataTable tbody tr:hover {
-      background-color: #d1ecf1;
+      background-color: #cce5ff; /* Light Blue */
     }
-    /* Style pagination buttons (if ever re-enabled) */
-    .dataTables_paginate .paginate_button {
-      background-color: #007bff;
-      color: white !important;
-      border-radius: 5px;
-      padding: 5px 10px;
-      margin: 2px;
+    
+    /* Table Cells */
+    .dataTable tbody td {
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+      border-bottom: 1px solid #ddd;
     }
-    .dataTables_paginate .paginate_button:hover {
-      background-color: #0056b3;
+    
+    /* Profile Picture Column */
+    .dataTable tbody td img {
+      border-radius: 0%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
     }
-    /* Style DataTables buttons container */
+  
+    
+    /* Table Cells */
+    .dataTable tbody td {
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    /* Profile Picture Column */
+    .dataTable tbody td img {
+      border-radius: 0%;
+      transition: transform 0.2s;
+    }
+  
+    
+    /* Export Buttons */
     .dt-buttons {
-      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
     }
+    
+    .dt-buttons .btn {
+      border-radius: 8px;
+      font-size: 1rem;
+      padding: 10px 15px;
+      font-weight: bold;
+      border: none;
+      
+    }
+    
+    .dt-buttons .btn-primary {
+      background-color: #007bff;
+    }
+    
+    .dt-buttons .btn-success {
+      background-color: #28a745;
+    }
+    
+    .dt-buttons .btn-info {
+      background-color: #17a2b8;
+    }
+    
+    .dt-buttons .btn-danger {
+      background-color: #dc3545;
+    }
+    
+    .dt-buttons .btn-warning {
+      background-color: #ffc107;
+      color: #212529;
+    }
+    
   </style>
 </head>
 
 <body>
   <!-- Navbar -Start  -->
   <nav class="navbar navbar-light">
-    <span class="navbar-brand mb-0 h1 text-primary">
-      <i class="ri-id-card-line"></i>
+    <span class="navbar-brand mb-0 h1 text-primary" style="font-weight: bold;">
+      <i class="ri-health-book-fill"></i>
       <i>SmartMediCard</i>
     </span>
   </nav>
