@@ -17,7 +17,6 @@ SmartMediCard is a *digital medical record management system* designed to provid
 
 ## 🏗 *Future Enhancements*
 - *AI-Powered Health Insights* – Personalized health recommendations based on medical history.
-- *Blockchain Integration* – Tamper-proof medical record storage for enhanced security.
 - *Multi-Factor Authentication (MFA)* – Additional security layers for login.
 - *Doctor & Hospital Integration* – Seamless sharing of medical records with authorized healthcare providers.
 - *Emergency Access Mode* – Allowing doctors to access records instantly in critical situations.
@@ -27,42 +26,31 @@ SmartMediCard is a *digital medical record management system* designed to provid
 
 ## 🛠 *Tech Stack*
 ### *Frontend:*
-- React.js
 - HTML, CSS, JavaScript
-- TailwindCSS / Bootstrap
+- Bootstrap
+- JQuery
 
 ### *Backend:*
 - Django (Python)
-- MySQL
-- Olama (for AI-powered features)
+- SQl3lite
 
 ### *Security & Optimization:*
 - End-to-End Encryption
-- API Gateway Security
-- Role-Based Access Control (RBAC)
+- Strong and Secure architecture 
 
 ---
 
 ## 🔧 *Installation & Setup*
 ### *Clone the Repository*
 bash
-git clone https://github.com/yourusername/SmartMediCard.git
-cd SmartMediCard
-
+git clone https://github.com/ayahack89/GoogleSalution2025-Team-DankCoders-.git
 
 ### *Backend Setup*
 bash
-cd backend
+python -m venv myenv
+./myenv/Scripts/activate
 pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-
-
-### *Frontend Setup*
-bash
-cd frontend
-npm install
-npm start
+python manage py runserver
 
 
 ---
@@ -72,7 +60,4 @@ We welcome contributions! Feel free to *fork the repository*, create a new branc
 
 ---
 
-## 📄 *License*
-This project is licensed under the *MIT License*.
-
----
+We are also working on our survey. You can participate, and your vote matters because every single vote motivates us. This allows us to understand our potential solutions and the needs of users. Survey link: https://docs.google.com/forms/d/1uEjLOuqTPztwxkui6TMXCf5KBBa_QNrasPdUUNVGwH0/prefill
