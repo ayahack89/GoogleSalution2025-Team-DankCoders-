@@ -57,7 +57,4 @@ python manage py runserver
 
 ## 🤝 *Contributing*
 We welcome contributions! Feel free to *fork the repository*, create a new branch, and submit a pull request. 
-
----
-
 We are also working on our survey. You can participate, and your vote matters because every single vote motivates us. This allows us to understand our potential solutions and the needs of users. Survey link: https://docs.google.com/forms/d/1uEjLOuqTPztwxkui6TMXCf5KBBa_QNrasPdUUNVGwH0/prefill
