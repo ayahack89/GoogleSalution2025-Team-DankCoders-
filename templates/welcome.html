@@ -1,85 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome {{full_name}}</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-</head>
-<style>
-     input[type="password"],
-     .btn{
-          border-radius: 100px;
-     }
-     .ri-health-book-fill{
-          font-size: 2rem;
-     }
-     .text-primary{
-          font-size: 1.2rem;
-     }
-     .information {
-       font-weight: bold;
-     }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome {{ full_name }}</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- Remixicon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    body {
+      background-color: #f8f9fa;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #007bff !important;
+    }
+
+    .ri-health-book-fill {
+      font-size: 1.8rem;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
     .card {
+      border: none;
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      background-color: #fff;
+      margin-top: 40px;
     }
+
     .card-body {
-      padding: 30px;
+      padding: 2rem;
     }
+
     .img-thumbnail {
-      display: block;
-      margin: 0 auto;
-      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border: 4px solid #dee2e6;
     }
+/* 
     .form-control {
-      border-radius: 10px;
+      border-radius: 50px;
+      padding-left: 20px;
+      height: 45px;
+      font-size: 1rem;
+    } */
+
+    /* .btn-primary {
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 10px;
+    } */
+
+    .text-center strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+      color: #343a40;
     }
-    .btn-primary {
-      border-radius: 10px;
+
+    .information {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #495057;
+    }
+    .navbar-brand{
+      font-family: "Montserrat", sans-serif;
+    }
+
+    @media (max-width: 576px) {
+      .card-body {
+        padding: 1.5rem;
+      }
     }
   </style>
-<body>
-     <!-- Navbar -Start  -->
-     <nav class="navbar navbar-light">
-          <span class="navbar-brand mb-0 h1 text-primary" style="font-weight: bold;"><i class="ri-health-book-fill"></i><i>SmartMediCard</i></span>
-        </nav>
-     <!-- Navbar -Stop  -->
+</head>
 
-     <!-- Profile -Start  -->
-     <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="card">
-                <div class="card-body">
-                  <center>
-                    <img src="{{ user_details.profile_pic.url }}" class="img-thumbnail rounded-0" alt="Profile Picture" width="200" height="200">
-                  </center>
-                  <form action="{% url 'login_view' %}" method="post" class="container py-3 px-3">
-                    {% csrf_token %}
-                    <div class="text-center">
-                      <strong>Welcome {{ full_name }}</strong><br>
-                      <strong>Unique ID:</strong> {{ user.username }} <input type="hidden" name="username" value="{{user.username}}"><br>
-                      <strong>Name:</strong> {{ full_name }}<br>
-                      <strong>Gender:</strong> {{ gender }}
-                    </div>
-                    <p class="mt-4 mb-3 text-center information">Please enter your password</p>
-                    <div class="form-group">
-                      <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" style="border-radius: 100px;">Process <i class="ri-arrow-right-circle-line"></i></button>
-                  </form>
-                </div>
-              </div>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-md">
+      <a class="navbar-brand" href="#">Smartmedicard</a>
+    </div>
+  </nav>
+
+  <!-- Profile Login Section -->
+  <div class="container">
+    <h2 class="text-center my-4" style="font-weight: 600; font-size: 1.75rem; color: #343a40;">
+      Welcome, <span class="text-primary">{{ full_name }}</span>
+    </h2>    
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="text-center mb-4">
+              <img src="{{ user_details.profile_pic.url }}" class="img-thumbnail" alt="Profile Picture">
             </div>
+
+            <form action="{% url 'login_view' %}" method="post" class="px-3">
+              {% csrf_token %}
+
+              <div class="table-responsive mb-4">
+                <table class="table table-borderless text-center mx-auto" style="max-width: 500px; background-color: #f1f3f5; border-radius: 15px;">
+                  <tbody>
+                    <!-- <tr>
+                      <th class="text-muted" style="border-top: none;">Welcome</th>
+                      <td style="border-top: none;"><span class="badge badge-pill badge-primary px-3 py-2" style="font-size: 1rem;">{{ full_name }}</span></td>
+                    </tr> -->
+                    <tr>
+                      <th class="text-muted">Unique ID</th>
+                      <td><span class="badge badge-pill badge-secondary px-3 py-2" style="font-size: 1rem;">{{ user.username }}</span></td>
+                      <input type="hidden" name="username" value="{{ user.username }}">
+                    </tr>
+                    <tr>
+                      <th class="text-muted">Name</th>
+                      <td><span class="badge badge-pill badge-primary px-3 py-2" style="font-size: 1rem;">{{ full_name }}</span></td>
+                    </tr>
+                    <tr>
+                      <th class="text-muted">Gender</th>
+                      <td><span class="badge badge-pill badge-success px-3 py-2" style="font-size: 1rem;">{{ gender }}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="Please enter your password" name="password" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Process <i class="ri-arrow-right-circle-line ml-1"></i>
+              </button>
+            </form>
           </div>
         </div>
-        <!-- Profile -End  -->
-
-     
+      </div>
+    </div>
+  </div>
 </body>
 </html>

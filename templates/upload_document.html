@@ -9,78 +9,108 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
   
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    /* Global Body Styles */
     body {
-      background-color: #f8f9fa;
+      background-color: whitesmoke;
+      font-family: "Montserrat", sans-serif;
+
     }
-    /* Sidebar styling */
+    
+    /* Sidebar Styling */
     .sidebar {
       height: 100vh;
-      background-color: #343a40;
-      color: #fff;
+      background-color: rgb(30, 30, 30);
+      color: #ecf0f1;
       padding-top: 20px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
     }
     .sidebar .nav-link {
-      color: #adb5bd;
+      color: #bdc3c7;
       font-size: 16px;
       display: flex;
       align-items: center;
       gap: 10px;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
     }
     .sidebar .nav-link.active, 
     .sidebar .nav-link:hover {
-      color: #fff;
-      background-color: #495057;
+      color: #ecf0f1;
+      background-color: black;
       border-radius: 8px;
     }
-    /* Admin header styling */
+    
+    /* Admin Header Styling */
     .admin-header {
-      background-color: #007bff;
-      color: #fff;
-      padding: 15px;
-      border-bottom: 3px solid #0056b3;
+      background-color: black;
+      color: #ecf0f1;
+      padding: 15px 30px;
+      border-bottom: 3px solid black;
       display: flex;
       align-items: center;
       gap: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    
+    /* Main Content Area */
+    .content {
+      padding: 30px;
+    }
+    
+    /* Card Styling */
     .card {
+      border: none;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .card-header {
-      background-color: #007bff;
-      color: #fff;
+      background-color: black;
+      color: #ecf0f1;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+      padding: 15px 20px;
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.25rem;
     }
-    .content {
-      padding: 30px;
-    }
-    /* Styled input fields */
+    
+    /* Form Input Enhancements */
     input.form-control, select.form-control {
       border-radius: 8px;
       padding: 10px;
       border: 1px solid #ced4da;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
     input.form-control:focus, select.form-control:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+      border-color: black;
+      box-shadow: 0 0 6px rgba(44, 62, 80, 0.25);
     }
-    /* Button styling */
+    
+    /* Button Styling */
     .btn-primary {
       border-radius: 8px;
       padding: 10px;
       font-size: 1rem;
       font-weight: 500;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      transition: background-color 0.3s ease, transform 0.2s;
     }
     .btn-primary:hover {
-      background-color: #0056b3;
+      background-color: black;
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive adjustments for sidebar on small devices */
+    @media (max-width: 768px) {
+      .sidebar {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -100,7 +130,7 @@
               <a class="nav-link active" href="#"><i class="ri-dashboard-fill"></i> Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="ri-upload-cloud-2-fill"></i> Upload Document</a>
+              <a class="nav-link" href="#"><i class="ri-upload-cloud-2-fill"></i> Upload Documents</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout_view' %}"><i class="ri-logout-box-r-line"></i> Logout</a>
@@ -110,12 +140,12 @@
       </nav>
 
       <!-- Main Content Area -->
-      <main class="col-md-10 ms-sm-auto content">
+      <main class="col-md-6 ms-sm-auto content">
         <div class="row justify-content-center">
           <div class="col-md-8">
             <div class="card">
               <div class="card-header">
-                <h4 class="mb-0"><i class="ri-file-upload-line"></i> Upload Document</h4>
+               <strong> Upload Documents </strong>
               </div>
               <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
@@ -132,7 +162,7 @@
                     <label for="id_document" class="form-label"><i class="ri-folder-upload-fill"></i> Select File</label>
                     {{ form.document }}
                   </div>
-                  <button type="submit" class="btn btn-primary w-100">
+                  <button type="submit" class="btn btn-dark">
                     <i class="ri-upload-2-line"></i> Upload
                   </button>
                 </form>

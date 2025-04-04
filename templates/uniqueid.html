@@ -2,73 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartMediCard - Login</title>
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+
+  <!-- Remixicon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      background-color: #f5f8fa;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .navbar {
+      background-color: #fff;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #007bff !important;
+    }
+
+    .ri-health-book-fill {
+      font-size: 1.8rem;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+      background-color: #ffffff;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* .form-group label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #495057;
+    } */
+
+    /* input[type="text"] {
+      border-radius: 50px;
+      padding-left: 20px;
+      height: 45px;
+      border: 1px solid #ced4da;
+    } */
+
+    /* .btn-primary {
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 10px 0;
+    } */
+
+    .alert {
+      font-size: 0.95rem;
+    }
+    .navbar-brand{
+      font-family: "Montserrat", sans-serif;
+    }
+
+    @media (max-width: 576px) {
+      .card-body {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
 </head>
-<style>
-     input[type="text"]{
-          border-radius: 100px;
-     }
-     .card {
-       border-radius: 15px;
-       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-     }
-     .information {
-       font-weight: bold;
-     }
-     .ri-health-book-fill{
-          font-size: 2rem;
-     }
-     .text-primary{
-          font-size: 1.2rem;
-     }
-   </style>
 
 <body>
-     <!-- Navbar -Start  -->
-     <nav class="navbar navbar-light">
-          <span class="navbar-brand mb-0 h1  text-primary" style="font-weight: bold;"><i class="ri-health-book-fill"></i><i>SmartMediCard</i></span>
-        </nav>
-     <!-- Navbar -Stop  -->
 
-<!-- Form -Start  -->
-  <div class="container mt-5 px-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title text-center mt-4">Login</h5>
-            <form action="uid" method="get">
-              {% if message %}
-              <div class="alert alert-danger" role="alert">
-                {{message}}
-              </div>{% endif %}
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-md">
+      <a class="navbar-brand" href="#">Smartmedicard</a>
+    </div>
+  </nav>
+  
 
-              <div class="form-group">
-                <label for="uniqueId" class="information px-2">Please enter your unique Id</label>
-                <input type="text" class="form-control" id="uniqueId" placeholder="Enter your unique Id.." name='uniqueid' required>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block" style="border-radius: 100px;">Log In <i class="ri-login-circle-line"></i></button>
-            </form>
+  <!-- Login Form -->
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body px-4 py-4">
+        <form action="uid" method="get">
+          {% if message %}
+          <div class="alert alert-danger text-center" role="alert">
+            {{message}}
           </div>
-        </div>
+          {% endif %}
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="uniqueId" name="uniqueid" placeholder="Enter your unique id" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+           Login <i class="ri-user-line"></i>
+          </button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- Form -End  -->
 
-     <br>
-
-
-
-
-
-     
 </body>
-
 </html>

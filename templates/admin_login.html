@@ -11,12 +11,14 @@
     rel="stylesheet"
 />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
         body {
             background-color: #f8f9fa;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Montserrat", sans-serif;
             height: 100vh;
             
         }
@@ -34,8 +36,6 @@
         }
         /* Make form inputs rounded */
         input.form-control {
-            border-radius: 50px !important;
-            padding: 12px;
             border: 1px solid #ced4da;
         }
     
@@ -46,16 +46,11 @@
         }
     
         /* Button styling */
-        .btn-primary {
-            border-radius: 50px !important;
-            padding: 12px;
+        .btn-dark {
             font-size: 1rem;
             font-weight: 500;
         }
     
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
       
     </style>
 </head>
@@ -78,7 +73,7 @@
                 {{ form.non_field_errors.0 }}
             </div>
         {% endif %}
-        <button type="submit" class="btn btn-primary w-100">Login <i class="ri-login-circle-line"></i></button>
+        <button type="submit" class="btn btn-dark w-100">Login <i class="ri-login-circle-line"></i></button>
     </form>
 </div>
 

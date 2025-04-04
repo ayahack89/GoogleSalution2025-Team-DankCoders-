@@ -9,218 +9,189 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Remixicon -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      background-color: #f5f7fa;
+      font-family: "Montserrat", sans-serif;
     }
-    .embed-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+
+    /* Navbar */
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #dee2e6;
+      padding: 15px 30px;
     }
-    .responsive-embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      color: #007bff !important;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .open-btn {
-      display: none; /* Hide the open button */
-    }
-    .btn {
-      border-radius: 100px;
-    }
-    .ri-health-book-fill {
-      font-size: 2rem;
-    }
-    .text-primary {
-      font-size: 1.2rem;
-    }
+
+    /* Card */
     .card {
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      margin-top: 40px;
+      background-color: #fff;
     }
+
     .card-body {
-      padding: 30px;
+      padding: 40px;
     }
+
+    .card h5 {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .btn {
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
     .btn-primary {
-      border-radius: 10px;
+      background-color: #007bff;
+      border-color: #007bff;
     }
-    .btn-primary a {
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004a9f;
+    }
+
+    .btn a {
       text-decoration: none;
       color: white;
     }
+
     /* Table Container */
     .dataTables_wrapper {
-      background-color: #ffffff; /* White background */
-      padding: 20px;
+      background-color: #ffffff;
+      padding: 25px;
       border-radius: 10px;
       width: 100%;
-      overflow-x: auto;
-      border: 1px solid #ddd;
+      border: 1px solid #dee2e6;
     }
-    
-    /* Table */
+
+    /* DataTable Styling */
     .dataTable {
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      border-radius: 10px;
-      overflow: hidden;
+      border-collapse: collapse;
     }
-    
-    /* Table Header */
+
     .dataTable thead th {
-      background-color: #007bff; /* Bootstrap Primary */
+      background-color: #007bff;
       color: white;
+      padding: 14px;
       text-align: center;
-      font-weight: bold;
-      padding: 12px;
-      border-bottom: 2px solid #0056b3;
+      font-weight: 600;
+      border-bottom: 1px solid #dee2e6;
     }
-    
-    /* Table Rows */
+
     .dataTable tbody tr {
-      background-color: #f9f9f9;
-      transition: background-color 0.3s ease;
+      background-color: #ffffff;
     }
-    
-    /* Alternate Row Colors */
+
     .dataTable tbody tr:nth-child(even) {
-      background-color: #eef4fc;
+      background-color: #f0f4f8;
     }
-    
-    /* Hover Effect */
+
     .dataTable tbody tr:hover {
-      background-color: #cce5ff; /* Light Blue */
+      background-color: #e2ecf8;
     }
-    
-    /* Table Cells */
+
     .dataTable tbody td {
       padding: 12px;
       text-align: center;
       vertical-align: middle;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #dee2e6;
+      color: #333;
     }
-    
-    /* Profile Picture Column */
+
     .dataTable tbody td img {
-      border-radius: 0%;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
+      border-radius: 8px;
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
     }
-  
-    
-    /* Table Cells */
-    .dataTable tbody td {
-      padding: 12px;
-      text-align: center;
-      vertical-align: middle;
-      border-bottom: 1px solid #ddd;
-    }
-    
-    /* Profile Picture Column */
-    .dataTable tbody td img {
-      border-radius: 0%;
-      transition: transform 0.2s;
-    }
-  
-    
-    /* Export Buttons */
+
     .dt-buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 20px;
     }
-    
+
     .dt-buttons .btn {
-      border-radius: 8px;
-      font-size: 1rem;
-      padding: 10px 15px;
-      font-weight: bold;
-      border: none;
-      
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      font-weight: 500;
     }
-    
-    .dt-buttons .btn-primary {
-      background-color: #007bff;
-    }
-    
-    .dt-buttons .btn-success {
-      background-color: #28a745;
-    }
-    
-    .dt-buttons .btn-info {
-      background-color: #17a2b8;
-    }
-    
-    .dt-buttons .btn-danger {
-      background-color: #dc3545;
-    }
-    
+
     .dt-buttons .btn-warning {
-      background-color: #ffc107;
       color: #212529;
     }
-    
+    .navbar-brand{
+      font-family: "Montserrat", sans-serif;
+      font-weight: bolder;
+    }
+
+    @media (max-width: 768px) {
+      .card-body {
+        padding: 20px;
+      }
+
+      .dt-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -Start  -->
-  <nav class="navbar navbar-light">
-    <span class="navbar-brand mb-0 h1 text-primary" style="font-weight: bold;">
-      <i class="ri-health-book-fill"></i>
-      <i>SmartMediCard</i>
-    </span>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-md">
+      <a class="navbar-brand" href="#">Smartmedicard</a>
+    </div>
   </nav>
-  <!-- Navbar -Stop  -->
 
-  <!-- Document download -Start  -->
-  <div class="container mb-3">
+  <!-- Main Content -->
+  <div class="container">
     <div class="card">
       <div class="card-body">
-        <div class="mb-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
           <div class="text-center text-md-left">
-            <h5 class="font-weight-bold mb-2">Download your documents</h5>
-            <p class="mb-0">You can download the following:</p>
+            <h5>Account Info</h5>
+            <p class="text-muted mb-0">You can download your account info in this following file format.</p>
           </div>
-          <div class="text-center mt-3 mt-md-0">
-            <a href="{% url 'download_reports' %}" class="btn btn-primary btn-md px-4" style="border-radius: 30px;">
-              View/ Download Reports 
-            </a>
+          <div class="d-flex gap-3 mt-3 mt-md-0">
+            <a href="{% url 'download_reports' %}" class="btn btn-primary px-4 mr-2"><i class="ri-download-2-fill"></i></a>
+            <a href="{% url 'logout_view' %}" class="btn btn-primary px-4">Logout <i class="ri-logout-circle-line ml-1"></i></a>
           </div>
-          <div class="text-center mt-3 mt-md-0">
-            <a href="{% url 'logout_view' %}" class="btn btn-primary btn-md px-4" style="border-radius: 30px;">
-              Logout <i class="ri-logout-circle-line ml-1"></i>
-            </a>
-          </div>
-          
         </div>
 
         <!-- Table Container -->
-        <div class="mb-4">
-          <div class="container text-center overflow-x">
-            <table class="table"></table>
-          </div>
+        <div class="table-responsive">
+          <table class="table"></table>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- jQuery & DataTables Scripts -->
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
@@ -231,79 +202,62 @@
 
   <script>
     $(document).ready(function () {
-      let url = "{% url 'download_information' %}";
-
-      $.get(url, function (data) {
-        console.log("Received data:", data);
-
-        // Ensure data is an array
-        if (!Array.isArray(data)) {
-          data = [data];
-        }
-
-        // Filter out the "user" field and define columns with a custom render function for profile_pic
-        let columns = Object.keys(data[0])
-          .filter(key => key !== "user")
-          .map(key => {
-            if (key === "profile_pic") {
-              return {
-                title: "PROFILE PICTURE",
-                data: key,
-                render: function (data, type, row) {
-                  return `<img src="/media/${data}" alt="Profile Pic" width="150" height="150">`;
-                }
-              };
-            } else {
-              return {
-                title: key.replace(/_/g, " ").toUpperCase(),
-                data: key
-              };
-            }
+      const url = "{% url 'download_information' %}";
+      
+      $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+          if (!Array.isArray(data)) {
+            data = [data];
+          }
+  
+          let columns = Object.keys(data[0])
+            .filter(key => key !== "user")
+            .map(key => {
+              if (key === "profile_pic") {
+                return {
+                  title: "PROFILE PICTURE",
+                  data: key,
+                  render: function (data) {
+                    return `<img src="/media/${data}" alt="Profile Picture" class="img-fluid rounded" style="max-width:80px;">`;
+                  }
+                };
+              } else {
+                return {
+                  title: key.replace(/_/g, " ").toUpperCase(),
+                  data: key
+                };
+              }
+            });
+          $(".table").DataTable({
+            data: data,
+            columns: columns,
+            dom: '<"d-flex justify-content-between align-items-center mb-3"B>rt',
+            paging: false,
+            searching: false,
+            ordering: false,
+            info: false,
+            responsive: true,
+            stripeClasses: ['table-row-light', 'table-row-dark'],
+            createdRow: function (row, data, dataIndex) {
+              $(row).addClass('custom-row'); 
+            },
+            buttons: [
+              { extend: 'copy', text: 'Copy <i class="ri-file-copy-line"></i>', className: 'btn btn-sm btn-outline-primary rounded' },
+              { extend: 'csv', text: 'CSV <i class="ri-table-3"></i>', className: 'btn btn-sm btn-outline-success rounded' },
+              { extend: 'pdf', text: 'PDF <i class="ri-file-pdf-2-line"></i>', className: 'btn btn-sm btn-outline-danger rounded' },
+              { extend: 'print', text: 'Print <i class="ri-printer-line"></i>', className: 'btn btn-sm btn-outline-warning rounded' }
+            ]
           });
-
-        $(".table").DataTable({
-          data: data,
-          columns: columns,
-          // Remove default search box, length menu, info text, and pagination
-          dom: 'Bt',    // Buttons + table
-          paging: false,
-          searching: false,
-          ordering: false,
-          info: false,
-
-          // Define export buttons
-          buttons: [
-            {
-              extend: 'copy',
-              text: 'Copy',
-              className: 'btn btn-sm btn-primary mr-2'
-            },
-            {
-              extend: 'csv',
-              text: 'CSV',
-              className: 'btn btn-sm btn-success mr-2'
-            },
-            {
-              extend: 'excel',
-              text: 'Excel',
-              className: 'btn btn-sm btn-info mr-2'
-            },
-            {
-              extend: 'pdf',
-              text: 'PDF',
-              className: 'btn btn-sm btn-danger mr-2'
-            },
-            {
-              extend: 'print',
-              text: 'Print',
-              className: 'btn btn-sm btn-warning'
-            }
-          ]
-        });
-      }).fail(function () {
-        console.error("Failed to fetch data from the server.");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.error("Failed to fetch data from the server:", textStatus, errorThrown);
+        }
       });
     });
   </script>
+  
 </body>
 </html>
