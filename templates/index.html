@@ -1,65 +1,84 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="3;url={%url 'home' %}">
-  <title>Please wait...</title>
+  <meta http-equiv="refresh" content="3;url={% url 'home' %}">
+  <title>Loading...</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Montserrat", sans-serif;
+      color: #007bff !important;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+    }
+
+    .typing-container {
+      text-align: center;
+    }
+
+    .typing-text {
+      font-size: 2rem;
+      font-weight: bold;
+      border-right: 3px solid #007bff;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    @keyframes blink {
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: #007bff;
+      }
+    }
+
+    .typing-text::after {
+      content: '';
+      animation: blink 0.75s step-end infinite;
+    }
+
+    @media (max-width: 576px) {
+      .typing-text {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #007bff;
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .navbar-brand {
-    font-size: 2rem;
-    color: white;
-    /* Bootstrap primary color */
-    animation: zoomIn 2s ease forwards;
-  }
-
-  /* .ri-id-card-line{
-          font-size: 2rem;
-     }
-     .text-primary{
-          font-size: 1.2rem;
-     } */
-  @keyframes zoomIn {
-    0% {
-      transform: scale(0);
-      opacity: 0;
-    }
-
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-</style>
 
 <body>
-
-  <div class="container">
-    <strong><span class="navbar-brand mb-0 h1"><i class="ri-health-book-fill brand-logo" style="font-size: 3.2rem;"></i><i
-          style="font-weight: bolder; font-size: 2.2rem;">SmartMediCard</i></span></strong>
+  <div class="typing-container">
+    <span class="typing-text" id="typing"></span>
   </div>
-</body>
 
-</html>
+  <script>
+    const text = "Smartmedicard";
+    const typingElement = document.getElementById("typing");
+    let index = 0;
 
+    function typeChar() {
+      if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeChar, 100); 
+      }
+    }
 
+    window.onload = typeChar;
+  </script>
 </body>
 
 </html>
