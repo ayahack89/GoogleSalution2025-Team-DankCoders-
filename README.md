@@ -1,7 +1,7 @@
-# 🚑 SmartMediCard
+# 🚑 Smartmedicard
 
 ## 🚀 Overview
-**SmartMediCard** is a *digital medical record management system* that enables users to access their medical records securely and instantly. With the help of **NFC-enabled ATM-like cards**, users can log in with just a tap and view, download, or export their medical data in multiple formats — making healthcare management seamless and hassle-free.
+**Smartmedicard** is a *digital medical record management system* that enables users to access their medical records securely and instantly. With the help of **NFC-enabled ATM-like cards**, users can log in with just a tap and view, download, or export their medical data in multiple formats — making healthcare management seamless and hassle-free.
 
 ---
 
