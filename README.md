@@ -1,5 +1,12 @@
 # 🚑 Smartmedicard
 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/ayahack89/GoogleSalution2025-Team-DankCoders-?style=social)](https://github.com/ayahack89/GoogleSalution2025-Team-DankCoders-/stargazers)
+[![Forks](https://img.shields.io/github/forks/ayahack89/GoogleSalution2025-Team-DankCoders-?style=social)](https://github.com/ayahack89/GoogleSalution2025-Team-DankCoders-/network/members)
+[![Issues](https://img.shields.io/github/issues/ayahack89/GoogleSalution2025-Team-DankCoders-?color=yellow)](https://github.com/ayahack89/GoogleSalution2025-Team-DankCoders-/issues)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/django-4.2-green.svg)](https://www.djangoproject.com/)
+
 ## 🚀 Overview
 **Smartmedicard** is a *digital medical record management system* that enables users to access their medical records securely and instantly. With the help of **NFC-enabled ATM-like cards**, users can log in with just a tap and view, download, or export their medical data in multiple formats — making healthcare management seamless and hassle-free.
 
