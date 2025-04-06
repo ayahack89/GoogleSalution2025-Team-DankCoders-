@@ -77,12 +77,12 @@ myenv\Scripts\activate
 source myenv/bin/activate
 ```
 
-# Install dependencies
+## Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-# Run the server
+## Run the server
 ``` bash
 python manage.py runserver
 ```
