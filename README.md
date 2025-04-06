@@ -94,10 +94,6 @@ Your response means a lot to us and helps improve **Smartmedicard**.
 👉 [Participate in the Survey](https://docs.google.com/forms/d/1uEjLOuqTPztwxkui6TMXCf5KBBa_QNrasPdUUNVGwH0/prefill)
 
 ---
-## 👥 OUR TEAM
-
-
-<table> <tr> <td align="center"> <a href="https://github.com/ayahack89"> <img src="https://github.com/ayahack89.png?s=100" width="100px;" alt="Ayahack89"/><br /> <sub><b>Ayahack89</b></sub> </a> </td> <td align="center"> <a href="https://github.com/Ar12agnik"> <img src="https://github.com/Ar12agnik.png?s=100" width="100px;" alt="Agnik Roy"/><br /> <sub><b>Agnik Roy</b></sub> </a> </td> </tr> </table>
 
 ## 📬 Contact
 
