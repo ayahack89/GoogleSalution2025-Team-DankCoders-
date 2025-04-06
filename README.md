@@ -67,12 +67,12 @@ cd GoogleSalutionChallenge2025.team.DankCoders
 ```bash
 python -m venv myenv
 ```
-# Activate the virtual environment
-# On Windows:
+## Activate the virtual environment
+ ### On Windows:
 ``` bash
 myenv\Scripts\activate
 ```
-# On macOS/Linux:
+ ### On macOS/Linux:
 ```bash
 source myenv/bin/activate
 ```
