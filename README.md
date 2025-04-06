@@ -45,8 +45,8 @@
 
 ### 🔁 Clone the Repository
 ```bash
-git clone https://github.com/ayahack89/GoogleSalution2025-Team-DankCoders-.git
-cd GoogleSalution2025-Team-DankCoders-
+git clone https://github.com/ayahack89/GoogleSalutionChallenge2025.team.DankCoders.git
+cd GoogleSalutionChallenge2025.team.DankCoders
 ```
 🐍 Backend Setup
 ```bash
@@ -73,11 +73,8 @@ python manage.py runserver
 ```
 ## 🤝 Contributing
 
-We welcome contributions!  
-Feel free to **fork the repository**, create a new branch, and submit a **pull request**.
-
-We're also running a **user feedback survey** to better understand user needs.  
-Your response means a lot to us and helps improve **SmartMediCard**.
+We're running a **user feedback survey** to better understand user needs.  
+Your response means a lot to us and helps improve **Smartmedicard**.
 
 👉 [Participate in the Survey](https://docs.google.com/forms/d/1uEjLOuqTPztwxkui6TMXCf5KBBa_QNrasPdUUNVGwH0/prefill)
 
