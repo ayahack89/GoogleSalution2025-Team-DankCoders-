@@ -94,14 +94,11 @@ For any inquiries, collaborations, or suggestions, feel free to **open an issue*
 
 ---
 ## 🎥 Demo Video
+For a deeper dive, watch the full demo video!
 
-[![SmartMediCard Demo](https://img.youtube.com/vi/kqshVayD9Mo/maxresdefault.jpg)](https://youtu.be/kqshVayD9Mo?si=DweCDAfCkbcZRXTk)
+[![Smartmedicard Demo](https://img.youtube.com/vi/kqshVayD9Mo/maxresdefault.jpg)](https://youtu.be/kqshVayD9Mo?si=DweCDAfCkbcZRXTk)
 
-Watch this walkthrough to see **SmartMediCard** in action:
-- **NFC Tap Login** demonstration  
-- Navigating the **User Dashboard**  
-- Exporting records as **PDF**, **CSV**, and more  
-- Security features and **role-based access** in real time  
+
 
 
 > Built with 💙 by **Team DankCoders**
